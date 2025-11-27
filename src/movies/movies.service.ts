@@ -1,5 +1,5 @@
 import {Injectable, NotFoundException} from '@nestjs/common';
-import {createConnection, Repository} from 'typeorm';
+import {createConnection, ILike, Like, Raw, Repository} from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import {Movie} from "./movies.entity";
 import { MoviesModels } from "./movies.models";
@@ -30,6 +30,13 @@ export class MoviesService {
         } catch (err) {
             console.error(err.message);
         }
+    }
+
+    async findMovieByName(name: string) {
+        const results = await this.moviesRepository.find({
+            where: { name: ILike(`%${name}%`) },
+        });
+        return results;
     }
 
     async update(id: number, updates: Partial<Movie>): Promise<void> {

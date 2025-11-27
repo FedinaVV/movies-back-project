@@ -19,6 +19,11 @@ export class MoviesController {
         return this.moviesService.findMovieById(id)
         }
 
+    @Get('search/:name')
+    async findMovieByName(@Param('name') name: string):  Promise<Movie[]> {
+        return this.moviesService.findMovieByName(name);
+    }
+
     @Post('create')
     async create(@Body() createMovie: Movie) {
         return this.moviesService.create(createMovie);
