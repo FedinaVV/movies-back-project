@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import {TypeOrmModule} from "@nestjs/typeorm";
 import {MoviesModule} from "./movies/movies.module";
 import {UsersModule} from "./users/users.module";
+import { AuthModule } from './auth/auth.module';
+import { TransactionModule } from './transaction/transaction.module';
 
 @Module({
   imports: [
@@ -21,7 +23,9 @@ import {UsersModule} from "./users/users.module";
     }),
 
       MoviesModule,
-      UsersModule
+      UsersModule,
+      AuthModule,
+      TransactionModule
   ],
   controllers: [AppController],
   providers: [AppService],
