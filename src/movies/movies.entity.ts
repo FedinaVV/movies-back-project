@@ -11,4 +11,7 @@ export class Movie {
     @Column()
     year: string;
 
+    @Column()
+    poster: string;
+
 }

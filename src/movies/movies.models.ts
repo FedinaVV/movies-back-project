@@ -1,4 +1,5 @@
 export class MoviesModels {
     name: string;
-    year: string
+    year: string;
+    poster: string
 }
