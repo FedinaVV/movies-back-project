@@ -14,4 +14,7 @@ export class Movie {
     @Column()
     poster: string;
 
+    @Column()
+    rating: string;
+
 }
